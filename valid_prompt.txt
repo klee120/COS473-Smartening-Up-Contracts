@@ -1,0 +1,25 @@
+Generate a FuturesProtocol smart contract using Solidity 0.4.17. Fill in all the functions using the function signatures and accomplish the following requirements:
+Task Description: The FuturesProtocol smart contract is an ERC20 token named "Futures Protocol" with the symbol "FUPT" and a decimal precision of 18. It initializes with a total supply of 100 million tokens, all of which are initially assigned to a specific address. The contract includes standard ERC20 functions such as transferring tokens, approving token spending, querying balances and allowances, and an additional function approveAndCall for approving and notifying a contract in a single transaction. The contract also includes a safety mechanism to prevent the accidental receipt of Ether and a function for the owner to recover any accidentally sent ERC20 tokens.
+
+The contract must have the following constraint: The contract is gas-efficient and include security checks to prevent common vulnerabilities (e.g., reentrancy, overflow/underflow).
+
+Here are the key functions that you must fully implement so that they are functioning:
+1. function totalSupply() public constant returns (uint):
+- Total supply 
+2. function balanceOf(address tokenOwner) public constant returns (uint balance):
+- Get the token balance for account tokenOwner 
+3. function transfer(address to, uint tokens) public returns (bool success):
+- Transfer the balance from token owner's account to to account  Owner's account must have sufficient balance to transfer  0 value transfers are allowed 
+4. function approve(address spender, uint tokens) public returns (bool success):
+- Token owner can approve for spender to transferFrom(...) tokens from the token owner's account https:github.comethereumEIPsblobmasterEIPSeip20tokenstandard.md recommends that there are no checks for the approval doublespend attack as this should be implemented in user interfaces  
+5. function transferFrom(address from, address to, uint tokens) public returns (bool success):
+- Transfer tokens from the from account to the to account  The calling account must already have sufficient tokens approve(...)d for spending from the from account and  From account must have sufficient balance to transfer  Spender must have sufficient allowance to transfer  0 value transfers are allowed 
+6. function allowance(address tokenOwner, address spender) public constant returns (uint remaining):
+- Returns the amount of tokens approved by the owner that can be transferred to the spender's account 
+7. function approveAndCall(address spender, uint tokens, bytes data) public returns (bool success):
+- Token owner can approve for spender to transferFrom(...) tokens from the token owner's account. The spender contract function receiveApproval(...) is then executed 
+8. function () public payable:
+- Don't accept ETH 
+9. function transferAnyERC20Token(address tokenAddress, uint tokens) public onlyOwner returns (bool success):
+- Owner can transfer out any accidentally sent ERC20 tokens 
+
