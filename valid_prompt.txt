@@ -23,3 +23,50 @@ Here are the key functions that you must fully implement so that they are functi
 9. function transferAnyERC20Token(address tokenAddress, uint tokens) public onlyOwner returns (bool success):
 - Owner can transfer out any accidentally sent ERC20 tokens 
 
+Here is the code structure to follow:
+contract FuturesProtocol is ERC20Interface, Owned, SafeMath {
+    string public symbol;
+    string public  name;
+    uint8 public decimals;
+    uint public _totalSupply;
+
+    mapping(address => uint) balances;
+    mapping(address => mapping(address => uint)) allowed;
+
+    constructor() public {
+        symbol = "FUPT";
+        name = "Futures Protocol";
+        decimals = 18;
+        _totalSupply = 100000000000000000000000000;
+        balances[0xD02EceAfFC3aAAed2De538fFBC32d4f8F45df247] = _totalSupply;
+        emit Transfer(address(0), 0xD02EceAfFC3aAAed2De538fFBC32d4f8F45df247, _totalSupply);
+    }
+
+    function totalSupply() public constant returns (uint) {
+    }
+
+    function balanceOf(address tokenOwner) public constant returns (uint balance) {
+    }
+
+    function transfer(address to, uint tokens) public returns (bool success) {
+    }
+
+    function approve(address spender, uint tokens) public returns (bool success) {
+    }
+
+    function transferFrom(address from, address to, uint tokens) public returns (bool success) {
+    }
+
+    function allowance(address tokenOwner, address spender) public constant returns (uint remaining) {
+    }
+
+    function approveAndCall(address spender, uint tokens, bytes data) public returns (bool success) {
+    }
+
+    function () public payable {
+    }
+
+    function transferAnyERC20Token(address tokenAddress, uint tokens) public onlyOwner returns (bool success) {
+    }
+}
+
