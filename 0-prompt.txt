@@ -1,0 +1,27 @@
+Generate a smart contract using Solidity 0.4.17. Fill in all the functions using the function signatures and accomplish the following requirements:
+Task Description: 
+
+The contract must have the following constraint: The contract is gas-efficient and include security checks to prevent common vulnerabilities (e.g., reentrancy, overflow/underflow).
+Here are the key functions that you must fully implement so that they are functioning:
+function goldTotalSupply() public constant returns (uint) :   Total supply 
+function goldBalanceOf(address tokenOwner) public constant returns (uint balance) :   Get the token balance for account tokenOwner 
+function goldTransfer(address to, uint tokens) public whenNotPaused returns (bool success) :   Transfer the balance from token owner's account to to account  Owner's account must have sufficient balance to transfer  0 value transfers are allowed 
+function mintGold(uint amount) public onlyCEO :   Mint Tokens 
+function burnGold(uint amount) public onlyCEO :   Burn Tokens 
+function goldFreeze(address user, uint amount, uint period) public onlyAdmin :   Freeze Tokens 
+function goldUnFreeze() public whenNotPaused :   UnFreeze Tokens 
+function totalSupply() public constant returns (uint) :   Total supply 
+function balanceOf(address tokenOwner) public constant returns (uint balance) :   Get the token balance for account tokenOwner 
+function transfer(address to, uint tokens) public returns (bool success) :   Transfer the balance from token owner's account to to account  Owner's account must have sufficient balance to transfer  0 value transfers are allowed 
+function approve(address spender, uint tokens) public returns (bool success) :   Token owner can approve for spender to transferFrom(...) tokens from the token owner's account https:github.comethereumEIPsblobmasterEIPSeip20tokenstandard.md recommends that there are no checks for the approval doublespend attack as this should be implemented in user interfaces  
+function transferFrom(address from, address to, uint tokens) public returns (bool success) :   Transfer tokens from the from account to the to account  The calling account must already have sufficient tokens approve(...)d for spending from the from account and  From account must have sufficient balance to transfer  Spender must have sufficient allowance to transfer  0 value transfers are allowed 
+function allowance(address tokenOwner, address spender) public constant returns (uint remaining) :   Returns the amount of tokens approved by the owner that can be transferred to the spender's account 
+function approveAndCall(address spender, uint tokens, bytes data) public returns (bool success) :   Token owner can approve for spender to transferFrom(...) tokens from the token owner's account. The spender contract function receiveApproval(...) is then executed 
+function _mine(uint amount, address receiver) internal :   Mint Tokens 
+function freeze(address user, uint amount, uint period) public onlyAdmin :   Freeze Tokens 
+function unFreeze() public whenNotPaused :   UnFreeze Tokens 
+function createPartner(address _partner, uint _amount, uint _singleTrans, uint _durance) public onlyAdmin returns (uint) :   Partner Authorization 
+function createVip(address _vip, uint _durance, uint _frequence, uint _salary) public onlyAdmin returns (uint) :   Vip Agreement 
+function () public payable :   Accept ETH 
+function transferAnyERC20Token(address tokenAddress, uint tokens) public onlyAdmin returns (bool success) :   Owner can transfer out any accidentally sent ERC20 tokens 
+Constraints: The contract must be gas-efficient and include security checks to prevent common vulnerabilities (e.g., reentrancy, overflow/underflow).
