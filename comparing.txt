@@ -1,0 +1,29 @@
+Some notes
+
+//
+number: Token type, which model correctly calls constructor (calls base constructor)
+//
+2: ERC721, both
+5: ERC721, only model
+6: ERC721, only model
+8: ERC721, only model
+9: ERC1155, only model
+10: ERC1155, only model
+12: ERC721, only model
+14: ERC721, only model - base didn't even make constructor
+15: ERC721, only model
+16: ERC721, only model
+17: ERC721, only model
+19: ERC721, only model
+
+
+"Implement functionality"
+4
+6
+8
+12
+13
+16
+17
+Look at 19 lolllll
+
